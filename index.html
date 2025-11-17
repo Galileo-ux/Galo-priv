@@ -16,27 +16,26 @@
       <p class="lead">Eres mi persona favorita, la que alegra mis días con solo una sonrisa. Me encanta cada momento contigo, mi bebé pechocha. 💖</p>
     </header>
 
-    <figure class="foto">
-      <!-- Renombra la imagen en tu carpeta a: whatsapp-2025-10-30-12-54-51.jpeg -->
-      <img
-        src="img/whatsapp-2025-10-30-12-54-51.jpeg"
-        alt="Mi bebé pechocha sonriendo"
-        class="imagen"
-        
-        width="260" height="260"
-        srcset="img/whatsapp-2025-10-30-12-54-51-small.jpeg 360w, img/whatsapp-2025-10-30-12-54-51-medium.jpeg 720w, img/whatsapp-2025-10-30-12-54-51-large.jpeg 1200w"
-        sizes="(max-width:520px) 160px, 260px"
-      >
-      <figcaption class="sr-only"></figcaption>
-    </figure>
+<div class="foto">
+  <img
+    src="img/bebe.jpeg"
+    alt="Mi bebé pechocha sonriendo"
+    class="imagen"
+    width="260" height="260"
+  >
+  <p class="texto-img">Mi bebé preciosa 💞 </p>
+</div>
+
+
 
     <section class="espacio" aria-label="Mensaje de aniversario">
       <p>
-        Hoy cumplimos dos meses mi amor, dos meses de conocernos. Estoy muy agradecido de haberte conocido,
-        por el tiempo que pasamos juntos; me has demostrado lo que es el amor de verdad, no sabes cuánto te adoro.
-        Desde que llegaste a mi vida has traído alegría y has iluminado mis días; estoy super agradecido por eso.
-        Diosito nos juntó y por eso le agradezco a diario; por eso a diario le pido que te cuide. Felices 2 meses, amor;
-        te amo con todo mi corazón. 💗
+       Hoy cumplimos dos meses, mi amor. Dos meses de conocernos. 
+       Estoy muy agradecido de haberte encontrado y por todo el tiempo que hemos compartido. 
+       Me has demostrado lo que es el amor de verdad y no imaginas cuánto te adoro. 
+       Desde que llegaste a mi vida, trajiste alegría y llenaste mis días de luz. 
+       Estoy profundamente agradecido por eso. Diosito nos juntó, y cada día le doy gracias y le pido que te cuide siempre. 
+       Felices 2 meses, amor. Te amo con todo mi corazón. 💗
       </p>
     </section>
 
@@ -46,8 +45,10 @@
         <li class="razon">Tu risa ilumina mis días</li>
         <li class="razon">Eres mi mejor compañía</li>
         <li class="razon">Me inspiras a ser mejor</li>
-        <li class="razon">Tu mirada me hace hogar</li>
         <li class="razon">Me gusta cómo me tratas</li>
+         <li class="razon">Eres la mejor novia del mundo</li>
+          <li class="razon">Siempre sabes como subirme el animo</li>
+           <li class="razon">Siempre seras mi princesa</li>
       </ul>
     </section>
 
@@ -59,18 +60,26 @@
     <div class="corazon" id="corazon" aria-hidden="true">❤️</div>
 
     <footer style="margin-top:1.2rem; font-size:0.9rem; color:rgba(59,47,47,0.6);">
-      <p>Creado con amor 💖</p>
+      <p>Creado con amor 💖
+        <br> para mi bebé
+      </p>
     </footer>
   </main>
 
-  <script>
-  function mostrarCorazon(){
-    const cor = document.getElementById('corazon');
+ <script>
+function mostrarCorazon(){
+  const cor = document.getElementById('corazon');
+
+  cor.classList.remove('show');
+  void cor.offsetWidth; 
+  cor.classList.add('show');
+
+  // DESAPARECE DESPUÉS DE 1.5 SEGUNDOS
+  setTimeout(() => {
     cor.classList.remove('show');
-    // force reflow to restart animation
-    void cor.offsetWidth;
-    cor.classList.add('show');
-  }
-  </script>
+  }, 1500);
+}
+</script>
+
 </body>
 </html>

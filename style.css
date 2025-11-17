@@ -157,3 +157,29 @@ p{
     padding:0.8rem;
   }
 }
+.foto {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.texto-img {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--texto);
+  font-weight: 600;
+}
+.corazon{
+  position:absolute;
+  left:50%;
+  top:50%;
+}
+.corazon {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 64px;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 300ms ease-out, opacity 300ms;
+}
