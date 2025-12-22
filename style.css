@@ -183,3 +183,34 @@ p{
   opacity: 0;
   transition: transform 300ms ease-out, opacity 300ms;
 }
+/* ...existing code... */
+
+/* Reglas añadidas para el nuevo apartado de momentos */
+.imagenes-grid{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:0.6rem;
+}
+
+/* mantiene la estética .espacio pero con tamaño para miniaturas y márgenes */
+.espacio.espacio-img{
+  width:160px;
+  min-height:160px;
+  padding:0.6rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin:0.4rem;
+}
+
+/* si se inserta una imagen dentro del espacio, que ocupe todo */
+.espacio.espacio-img .imagen{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+  border:0;
+}
