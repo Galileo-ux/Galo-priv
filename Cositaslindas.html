@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Apartados de amor con corazones animados.">
+  <title>Apartados de amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Animación de corazones flotando */
+    .corazon-flotante {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.8;
+      animation: flotar 3s linear forwards;
+      pointer-events: none;
+      z-index: 10;
+    }
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120px) scale(1.4);
+        opacity: 0;
+      }
+    }
+    .apartado {
+      background: var(--rosa-suave);
+      border-radius: 16px;
+      margin: 1.5rem 0;
+      padding: 1.2rem 1rem 1.2rem 1.5rem;
+      box-shadow: 0 4px 18px rgba(230,57,70,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+      border: 2px solid var(--rosa-medio);
+      animation: aparecer 1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes aparecer {
+      0% { opacity: 0; transform: scale(0.95) translateY(30px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .apartado h2 {
+      color: var(--acento);
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .apartado p {
+      font-size: 1.08rem;
+      color: var(--texto);
+      margin: 0.5rem 0 0 0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="Apartados de amor">
+    <header>
+      <h1>Objetivos de amor 💖</h1>
+      <p class="lead">Mis objetivos con mi princesita (corto,mediano,largo plazo)</p>
+    </header>
+
+    <section class="apartado">
+      <h2>A corto plazo</h2>
+      <p>Quiero que seas feliz, que te sientas bien contigo misma, que sigas siendo tú, que sigas siendo esa persona tan hermosa por dentro y por fuera, que sigas brillando como lo haces,
+         que sigas siendo mi princesita hermosa, que sigas siendo esa persona tan dulce y tan linda que me enamoró desde el primer día, quiero segir amandote y respetandote, 
+         quiero seguir conociéndote cada vez más,  seguir creando memorias bonitas contigo,  seguir siendo tu novio y tu mejor amigo,  seguir siendo esa persona que te apoya 
+         en todo lo que te propongas, pero también, conocer a tus padres, quiero que me presentes a todas las personas importantes para ti, 
+         quiero que me dejes ser parte de tu vida cada vez más💝💘</p>
+    </section>
+
+    <section class="apartado">
+      <h2>A mediano plazo</h2>
+      <p>Quiero que sigas creciendo como persona, que sigas aprendiendo cosas nuevas, que sigas siendo la misma princesita hermosa que me enamoró desde el primer día, 
+        ser quien te apoye cuando entres a la facultad, ser quien te apoye en todo lo que te propongas, quien te ayude a cumplir tus sueños, 
+        quien te ayude a alcanzar tus metas, quien te ayude a crecer como persona y aplaudir cada pasito que des,
+        recordarte la niña tan inteligente, tan hermosa, tan dulce y tan linda que eres
+         y lo orgulloso que estoy de ti🥹✨</p>
+    </section>  
+
+    <section class="apartado">
+      <h2>A largo plazo</h2>
+      <p>Quiero seguir creando momentos increíbles contigo, seguir amándote cada día más, seguir siendo tu mejor amigo y tu pareja para siempre,
+      es pronto decirlo pero llegar al matrimonio contigo, amarte cada día más y seguir siendo esa persona que te hace feliz y te hace sentir amada,
+      que cumplamos nuestros sueños juntos y que nuestra historia de amor siga creciendo con cada día que pasamos juntos,
+      quiero hacerte la mujer más feliz del mundo🤍</p>
+    </section>
+
+    <div style="margin-top:1.5rem;">
+      <a href="index.html" class="btn" style="font-size:1.1rem;">Volver al inicio</a>
+    </div>
+    <footer style="margin-top:1.5rem; font-size:0.9rem; color:rgba(59,47,47,0.6);">
+      <p>Mi corazón es tuyo ❤️</p>
+    </footer>
+  </main>
+
+  <script>
+    // Función para crear corazones flotantes aleatorios
+    function lanzarCorazon() {
+      const colores = ['#e63946', '#ff5c7a', '#ff9bb4', '#ffb6c1'];
+      const corazon = document.createElement('span');
+      corazon.className = 'corazon-flotante';
+      corazon.textContent = '💖';
+      corazon.style.left = (10 + Math.random() * 80) + '%';
+      corazon.style.color = colores[Math.floor(Math.random()*colores.length)];
+      corazon.style.top = (60 + Math.random() * 20) + 'px';
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 3000);
+    }
+    // Lanza corazones cada cierto tiempo
+    setInterval(lanzarCorazon, 1800);
+  </script>
+</body>
+</html>
