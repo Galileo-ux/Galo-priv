@@ -17,9 +17,9 @@
             
             <!-- AQUÍ PONES TU CARTA DE 1 AÑO -->
             <div class="mini-row top">
-                <img src="img/collage.jpeg" alt="mini 1" class="mini-img">
+                <img src="img/NavidadDibujo.jpeg" alt="mini 1" class="mini-img">
                 <img src="img/kiss.jpeg" alt="mini 2" class="mini-img">
-                <img src="img/salida2.jpeg" alt="mini 3" class="mini-img">
+                <img src="img/espejoPlaza.jpeg" alt="mini 3" class="mini-img">
             </div>
 
             <p class="user-text">
@@ -35,10 +35,19 @@
                 </em>
             </p>
 
+            <p class="user-text small-note">PD: Cada día a tu lado es mi favorito — gracias por todo lo bonito que vivimos. En serio no tienes idea de cuanto sentido le has dado a mi vida.
+                amo ser tu novio, me enorgullece serlo, te adoro infinitamente. Te amo muchísimo mi coshita bellishima. 💙</p>
+
+            <!-- Mini-ruleta: cuadro de texto y botón -->
+            <div class="roulette" aria-live="polite">
+                <input type="text" id="ruletaText" class="roulette-text" readonly placeholder="Aquí aparecerá un mensajito bonito">
+                <button id="ruletaBtn" class="btn roulette-btn">Girar</button>
+            </div>
+
             <div class="mini-row bottom">
-                <img src="img/bebe.jpeg" alt="mini 4" class="mini-img">
-                <img src="img/14feb.jpeg" alt="mini 5" class="mini-img">
-                <img src="img/chat.jpeg" alt="mini 6" class="mini-img">
+                <img src="img/EspejoAlmenares.jpeg" alt="mini 4" class="mini-img">
+                <img src="img/GatitosDibujo.jpeg" alt="mini 5" class="mini-img">
+                <img src="img/Lentes.jpeg" alt="mini 6" class="mini-img">
             </div>
             <!-- FIN DE TU CARTA -->
 
@@ -46,5 +55,62 @@
             <a href="index.html" class="btn">Volver al inicio</a>
         </div>
     </div>
+<!-- Modal para ver imágenes en móvil -->
+<div class="img-modal" id="imgModal1a" aria-hidden="true">
+    <button id="closeModal1a" aria-label="Cerrar imagen" style="position:absolute;top:16px;right:18px;background:transparent;border:0;color:white;font-size:28px;">×</button>
+    <img src="" alt="imagen ampliada" id="modalImg1a">
+</div>
+
+<script>
+// Lightbox para mini-imágenes
+document.addEventListener('click', function(e){ const t = e.target.closest('.mini-img, .imagen'); if(t){ const m = document.getElementById('imgModal1a'); document.getElementById('modalImg1a').src = t.src; m.classList.add('show'); m.setAttribute('aria-hidden','false'); } });
+document.getElementById('closeModal1a').addEventListener('click', function(){ const m = document.getElementById('imgModal1a'); m.classList.remove('show'); m.setAttribute('aria-hidden','true'); });
+document.getElementById('imgModal1a').addEventListener('click', function(e){ if(e.target.id === 'imgModal1a'){ e.currentTarget.classList.remove('show'); e.currentTarget.setAttribute('aria-hidden','true'); } });
+
+// Ruleta de mensajitos (ampliada, más profundas)
+const mensajes = [
+    "Eres el refugio donde encuentro paz .",
+    "Contigo aprendí que el amor es paciencia, risa y coraje compartido.",
+    "Cada día a tu lado me enseña a mirar la vida con más asombro.",
+    "Tu forma de cuidarme  me recuerda lo afortunado que soy.",
+    "Me inspiras a ser constante y a soñar en grande contigo de la mano.",
+    "En tus ojos encuentro motivos para agradecer cada pequeño instante.",
+    "Tu risa reconstruye mis días y convierte lo ordinario en especial.",
+    "Prometo escucharte incluso cuando las palabras faltan y acompañarte siempre.",
+    "Eres mi cómplice en locuras y mi calma cuando todo tiembla.",
+    "Gracias por creer en nosotros incluso cuando tengo dudas.",
+    "Dios cruzo nuestros caminos para hacer de mi vida un lugar mejor.",
+    "Te amo no solo por lo que eres, sino por cómo me haces sentir cada día.",
+];
+const ruletaBtn = document.getElementById('ruletaBtn');
+const ruletaText = document.getElementById('ruletaText');
+function girarRuleta(){
+    if(!ruletaBtn || !ruletaText) return;
+    ruletaBtn.disabled = true;
+    const cycles = 12;
+    let i = 0;
+    // efecto visual mientras 'gira'
+    ruletaText.classList.remove('reveal');
+    const interval = setInterval(()=>{
+        const idx = Math.floor(Math.random()*mensajes.length);
+        ruletaText.value = mensajes[idx];
+        i++;
+        if(i>=cycles){ 
+            clearInterval(interval); 
+            // resaltar resultado
+            ruletaText.classList.add('reveal');
+            // pequeño confeti al revelar
+            try{ if(window.confetti){ confetti({ particleCount: 30, spread: 60, origin: { y: 0.6 } }); } }catch(e){}
+            setTimeout(()=> ruletaText.classList.remove('reveal'), 1800);
+            ruletaBtn.disabled = false; 
+        }
+    }, 80);
+}
+if(ruletaBtn) ruletaBtn.addEventListener('click', girarRuleta);
+</script>
+
 </body>
 </html>
+
+<!-- canvas-confetti CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>

@@ -54,7 +54,7 @@ Quiero verte de nuevo y llenarte de besitos esa carita tan hermosa. Recuerda que
 
     <div class="actions" style="margin-top:1rem;">
       <button class="btn" id="loveBtn" onclick="mostrarCorazon()" aria-label="Mostrar corazón de amor">Te amo</button>
-      <a href="1año.html" class="btn" style="margin-left:0.6rem;">1 Año</a>
+      <a href="1año.html" class="btn pastel" style="margin-left:0.6rem;">1 Año</a>
 
     </div>
 
@@ -82,6 +82,37 @@ function mostrarCorazon(){
     cor.classList.remove('show');
   }, 1500);
 }
+</script>
+
+<!-- Modal para ver imágenes en móvil -->
+<div class="img-modal" id="imgModal" aria-hidden="true">
+  <button id="closeModal" aria-label="Cerrar imagen" style="position:absolute;top:16px;right:18px;background:transparent;border:0;color:white;font-size:28px;">×</button>
+  <img src="" alt="imagen ampliada" id="modalImg">
+</div>
+
+<script>
+// Lightbox simple para imágenes con clase .imagen
+document.addEventListener('click', function(e){
+  const target = e.target.closest('.imagen');
+  if(target){
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = target.src;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+  }
+});
+document.getElementById('closeModal').addEventListener('click', function(){
+  const modal = document.getElementById('imgModal');
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden','true');
+});
+document.getElementById('imgModal').addEventListener('click', function(e){
+  if(e.target.id === 'imgModal'){
+    e.currentTarget.classList.remove('show');
+    e.currentTarget.setAttribute('aria-hidden','true');
+  }
+});
 </script>
 
 </body>

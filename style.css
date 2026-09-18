@@ -214,3 +214,37 @@ p{
   border-radius:12px;
   border:0;
 }
+
+/* Mejoras móviles y UX táctil */
+html,body { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+.btn{ touch-action: manipulation; }
+
+/* Botones más grandes y full-width en pantallas pequeñas */
+@media (max-width:520px){
+  .btn{ display:block; width:100%; padding:0.9rem 1rem; font-size:1rem; border-radius:14px; }
+}
+
+/* Imágenes principales responsivas */
+.imagen{ max-width:100%; height:auto; }
+
+/* Modal ligero para ver imágenes en móvil */
+.img-modal{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); z-index:9999;
+}
+.img-modal.show{ display:flex; }
+.img-modal img{ max-width:95%; max-height:90%; border-radius:12px; box-shadow:0 20px 40px rgba(0,0,0,0.5); }
+
+/* Mejora de espaciado para zonas táctiles */
+.espacio{ padding:1.1rem; }
+
+/* Botón pastel específico (ej. "1 Año") */
+.btn.pastel{
+  background: #bfe9ff;
+  color: #063246;
+  box-shadow: 0 8px 20px rgba(11,88,120,0.12);
+}
+.btn.pastel:hover, .btn.pastel:focus{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(11,88,120,0.18);
+}
